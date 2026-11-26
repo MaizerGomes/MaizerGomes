@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Maizer Gomes · Chief Technology Officer · Maputo</title>
+<meta name="description" content="Maizer Gomes: Chief Technology Officer at Thembani Digital Financial Services, General Director of Thembani Technology Solutions, founder of eKutiva Solutions. Maputo, Mozambique.">
+<meta name="color-scheme" content="light dark">
+<script>
+/* skin: White (default), Wire or BIOS (system dark mode). Language: stored choice, else the browser's (English if it is English, otherwise Portuguese). Set before first paint. */
+try { var t = localStorage.getItem('bx-skin-theme'); if (t === 'blue') t = 'bios'; if (['white','wire','bios'].indexOf(t) > -1) document.documentElement.setAttribute('data-theme', t);
+  var l = localStorage.getItem('bx-lang') || ((navigator.language || 'pt').slice(0,2) === 'en' ? 'en' : 'pt'); document.documentElement.lang = l; } catch (e) {}
+</script>
+<style>
+@font-face{font-family:'VT323';font-weight:400;font-display:swap;src:url(fonts/VT323-400.woff2) format('woff2')}
+@font-face{font-family:'IBM Plex Sans';font-weight:100 700;font-display:swap;src:url(fonts/IBMPlexSans-100-700.woff2) format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-weight:400;font-display:swap;src:url(fonts/IBMPlexMono-400.woff2) format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-weight:500;font-display:swap;src:url(fonts/IBMPlexMono-500.woff2) format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-weight:600;font-display:swap;src:url(fonts/IBMPlexMono-600.woff2) format('woff2')}
+
+/* ---- BIOS skin tokens (docs/branding/ekuschool-bios-skin-guidelines.html): every colour is one of the 16 VGA colours ---- */
+:root{
+  --bx-bg:#FFFFFF;--bx-field:#FFFFFF;--bx-fg:#000000;--bx-dim:#555555;--bx-frame:#0000AA;--bx-hair:#AAAAAA;
+  --bx-bar:#0000AA;--bx-bar-ink:#FFFFFF;--bx-select:#0000AA;--bx-select-ink:#FFFFFF;--bx-value:#0000AA;--bx-accent:#0000AA;--bx-accent-ink:#FFFFFF;
+  --bx-ok-bg:#55FF55;--bx-ok-ink:#000000;--bx-warn-bg:#FFFF55;--bx-warn-ink:#000000;--bx-err-bg:#AA0000;--bx-err-ink:#FFFFFF;
+  --bx-info-bg:#55FFFF;--bx-info-ink:#000000;--bx-shadow:#000000;
+  --bx-border:2px solid;--bx-border-strong:3px double;--bx-shadow-s:4px;--bx-shadow-l:8px;--bx-case:uppercase;--bx-open:"< ";--bx-close:" >";
+  --bx-font-ui:VT323,"Courier New",monospace;
+  --bx-font-text:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --bx-font-data:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme]){
+  --bx-bg:#0000AA;--bx-field:#0000AA;--bx-fg:#FFFFFF;--bx-dim:#AAAAAA;--bx-frame:#FFFFFF;--bx-hair:#5555FF;
+  --bx-bar:#AAAAAA;--bx-bar-ink:#000000;--bx-select:#AA0000;--bx-select-ink:#FFFFFF;--bx-value:#FFFF55;--bx-accent:#55FFFF;--bx-accent-ink:#000000;
+  --bx-err-edge:#FF5555}}
+:root[data-theme="bios"]{
+  --bx-bg:#0000AA;--bx-field:#0000AA;--bx-fg:#FFFFFF;--bx-dim:#AAAAAA;--bx-frame:#FFFFFF;--bx-hair:#5555FF;
+  --bx-bar:#AAAAAA;--bx-bar-ink:#000000;--bx-select:#AA0000;--bx-select-ink:#FFFFFF;--bx-value:#FFFF55;--bx-accent:#55FFFF;--bx-accent-ink:#000000;
+  --bx-err-edge:#FF5555}
+
+/* BIOS direction (ekuschool-bios-brand-guidelines): Setup Blue with Plex Mono text and dotted-leader menus */
+:root[data-theme="bios"]{--bx-font-text:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace}
+/* Wireframe skin (ekuschool-bios-skin-guidelines .skin-wire): grey, 1px lines, system font, no ornaments */
+:root[data-theme="wire"]{
+  --bx-bg:#fff;--bx-field:#fff;--bx-fg:#222;--bx-dim:#777;--bx-frame:#9a9a9a;--bx-hair:#ddd;--bx-bar:#eee;--bx-bar-ink:#222;--bx-select:#ddd;--bx-select-ink:#000;--bx-value:#444;--bx-accent:#444;--bx-accent-ink:#fff;
+  --bx-ok-bg:#ddd;--bx-ok-ink:#222;--bx-warn-bg:#ddd;--bx-warn-ink:#222;--bx-err-bg:#ddd;--bx-err-ink:#222;--bx-info-bg:#ddd;--bx-info-ink:#222;--bx-shadow:#000;
+  --bx-border:1px solid;--bx-border-strong:1px solid;--bx-shadow-s:0px;--bx-shadow-l:0px;--bx-case:none;--bx-open:"";--bx-close:"";
+  --bx-font-ui:system-ui,Arial,sans-serif;--bx-font-text:system-ui,Arial,sans-serif;--bx-font-data:ui-monospace,Menlo,monospace}
+:root[data-theme="wire"] :is(.bar,.tab,.chip,.card>h2,th,td:first-child,.role,.roles b,.stat b,.btn,.seg button,.keys,.contact b,.grid h3,.status,.hero h1,.lead b){font-size:15px;letter-spacing:0;font-weight:600}
+:root[data-theme="wire"] .hero h1{font-size:44px}:root[data-theme="wire"] .stat b{font-size:28px}:root[data-theme="wire"] .grid h3{font-size:19px}
+@media print{:root,:root[data-theme="bios"]{
+  --bx-bg:#FFFFFF;--bx-field:#FFFFFF;--bx-fg:#000000;--bx-dim:#555555;--bx-frame:#0000AA;--bx-hair:#AAAAAA;--bx-bar:#0000AA;--bx-bar-ink:#FFFFFF;
+  --bx-select:#0000AA;--bx-select-ink:#FFFFFF;--bx-value:#0000AA;--bx-accent:#0000AA;--bx-accent-ink:#FFFFFF}}
+
+/* ---- page ---- */
+*{box-sizing:border-box}
+html{background:var(--bx-bg);scroll-behavior:smooth}
+body{margin:0;background:var(--bx-bg);color:var(--bx-fg);font:400 17px/1.6 var(--bx-font-text)}
+a{color:var(--bx-accent);text-underline-offset:3px}
+.skip{position:absolute;left:-999px;top:0;padding:6px 12px;background:var(--bx-select);color:var(--bx-select-ink);font:22px var(--bx-font-ui)}
+.skip:focus{left:8px;top:8px;z-index:9}
+:focus-visible{outline:3px solid var(--bx-value);outline-offset:2px}
+.screen{max-width:1000px;margin:20px auto;border:var(--bx-border-strong) var(--bx-frame);background:var(--bx-bg);box-shadow:var(--bx-shadow-l) var(--bx-shadow-l) 0 var(--bx-shadow)}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:6px 14px;flex-wrap:wrap;padding:2px 14px;background:var(--bx-bar);color:var(--bx-bar-ink);font:26px/1.3 var(--bx-font-ui);letter-spacing:.06em;text-transform:var(--bx-case)}
+.tabs{display:flex;overflow-x:auto;border-bottom:var(--bx-border-strong) var(--bx-frame)}
+.tab{flex:none;padding:2px 18px;color:var(--bx-fg);font:24px/1.4 var(--bx-font-ui);letter-spacing:.06em;text-transform:var(--bx-case);text-decoration:none}
+.tab:hover,.tab:focus-visible,.tab[aria-current="true"]{background:var(--bx-select);color:var(--bx-select-ink)}
+main{padding:12px 24px 28px}
+h1,h2,h3{font-weight:400;margin:0}
+.hero{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:end;padding:18px 0 6px}
+.hero h1{font:72px/.95 var(--bx-font-ui);letter-spacing:.02em;text-transform:var(--bx-case)}
+.role{margin:8px 0 2px;color:var(--bx-value);font:30px/1.1 var(--bx-font-ui);letter-spacing:.05em;text-transform:var(--bx-case)}
+.where{margin:0;color:var(--bx-dim);font:400 15px var(--bx-font-data)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0;padding:0;list-style:none}
+.chip{display:inline-flex;padding:0 8px;border:var(--bx-border) var(--bx-frame);background:var(--bx-field);font:21px/1.4 var(--bx-font-ui);letter-spacing:.06em;text-transform:var(--bx-case)}
+.stats{display:flex;gap:12px}
+.stat{min-width:116px;border:var(--bx-border) var(--bx-frame);padding:8px 14px}
+.stat b{display:block;font:46px/1 var(--bx-font-ui);letter-spacing:.03em}
+.stat span{display:block;color:var(--bx-dim);font:400 13px/1.3 var(--bx-font-text)}
+.card{position:relative;margin-top:30px;padding:26px 20px 18px;border:var(--bx-border) var(--bx-frame);background:var(--bx-bg)}
+.card>h2{position:absolute;top:-.62em;left:14px;padding:0 8px;background:var(--bx-bg);color:var(--bx-accent);font:24px/1.2 var(--bx-font-ui);letter-spacing:.08em;text-transform:var(--bx-case)}
+.card p{margin:0 0 1em;max-width:70ch}.card p:last-child{margin-bottom:0}
+.dim{color:var(--bx-dim)}
+table{width:100%;border-collapse:collapse;font:400 15px/1.5 var(--bx-font-text)}
+th,td{padding:8px 10px;border:1px solid var(--bx-hair);text-align:left;vertical-align:top}
+th{color:var(--bx-dim);font:20px/1.2 var(--bx-font-ui);letter-spacing:.1em;text-transform:var(--bx-case);white-space:nowrap}
+td:first-child{color:var(--bx-accent);font:22px/1.3 var(--bx-font-ui);letter-spacing:.04em;text-transform:var(--bx-case);white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 22px}
+.grid .card{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+.grid h3{font:28px/1.1 var(--bx-font-ui);letter-spacing:.05em;text-transform:var(--bx-case)}
+.grid p{font-size:15.5px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:auto 0 0;padding:0;list-style:none}
+.status{display:inline-block;padding:0 8px;font:20px/1.4 var(--bx-font-ui);letter-spacing:.08em;text-transform:var(--bx-case);background:var(--bx-info-bg);color:var(--bx-info-ink)}
+.roles{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.roles li{display:grid;grid-template-columns:minmax(0,230px) 1fr;gap:14px;padding-bottom:10px;border-bottom:1px dashed var(--bx-hair)}
+.roles li:last-child{border:0;padding:0}
+.roles b{font:24px/1.2 var(--bx-font-ui);letter-spacing:.05em;text-transform:var(--bx-case);color:var(--bx-value)}
+.contact{margin:0;padding:0;list-style:none}
+.contact li{display:flex;gap:12px;align-items:baseline;padding:4px 0}
+.contact li[hidden]{display:none}
+.contact b{flex:none;width:110px;color:var(--bx-accent);font:22px/1.2 var(--bx-font-ui);letter-spacing:.08em;text-transform:var(--bx-case)}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:2px 18px;border:var(--bx-border) var(--bx-accent);background:var(--bx-accent);color:var(--bx-accent-ink);font:24px/1 var(--bx-font-ui);letter-spacing:.06em;text-transform:var(--bx-case);text-decoration:none;cursor:pointer}
+.btn::before{content:var(--bx-open)}.btn::after{content:var(--bx-close)}
+.btn:hover,.btn:focus-visible{background:var(--bx-select);color:var(--bx-select-ink);border-color:var(--bx-frame)}
+.seg{display:inline-flex;border:var(--bx-border) var(--bx-frame)}
+.seg button{min-height:34px;padding:0 12px;border:0;background:transparent;color:var(--bx-fg);font:22px/1 var(--bx-font-ui);letter-spacing:.06em;text-transform:var(--bx-case);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--bx-select);color:var(--bx-select-ink)}
+.keys{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;align-items:center;padding:6px 14px;border-top:var(--bx-border-strong) var(--bx-frame);background:var(--bx-bar);color:var(--bx-bar-ink);font:22px/1.4 var(--bx-font-ui);letter-spacing:.05em;text-transform:var(--bx-case)}
+.opts{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 24px;padding:6px 14px;border-bottom:1px dashed var(--bx-hair)}
+.opts .grp{display:flex;align-items:center;gap:10px}
+.opts label,.opts .lbl{color:var(--bx-dim);font:20px/1 var(--bx-font-ui);letter-spacing:.08em;text-transform:var(--bx-case)}
+@media (max-width:760px){
+  .screen{margin:0;border-width:3px;box-shadow:none}
+  main{padding:8px 14px 24px}
+  .hero{grid-template-columns:1fr}.hero h1{font-size:52px}.stats{flex-wrap:wrap}
+  .grid{grid-template-columns:1fr}
+  .roles li{grid-template-columns:1fr;gap:2px}
+  table,tbody,tr,td,th{display:block}thead{display:none}
+  tr{padding:8px 0;border-bottom:1px solid var(--bx-hair)}td{border:0;padding:2px 10px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{.tabs,.opts,.skip{display:none}.screen{box-shadow:none;margin:0}}
+/* ---- additions: leader menu, timeline, filters, boot screen, console, toast, themes ---- */
+.menu{margin:0;padding:0;list-style:none;font:22px/1.35 var(--bx-font-ui);max-width:560px}
+.menu li{display:flex;gap:8px;align-items:baseline;padding:0 8px}
+.menu .lead{flex:1;min-width:16px;border-bottom:2px dotted var(--bx-dim);transform:translateY(-4px)}
+.menu .v{color:var(--bx-value)}.menu .v::before{content:"["}.menu .v::after{content:"]"}
+.menu li:hover{background:var(--bx-select);color:var(--bx-select-ink)}.menu li:hover .v{color:var(--bx-select-ink)}.menu li:hover .lead{border-color:var(--bx-select-ink)}
+:root[data-theme="wire"] .menu{font:15px/1.7 system-ui,Arial,sans-serif}
+.tl{position:relative;margin:0;padding:0 0 0 22px;list-style:none;border-left:var(--bx-border) var(--bx-frame)}
+.tl li{position:relative;padding:0 0 18px}.tl li:last-child{padding-bottom:0}
+.tl li::before{content:"";position:absolute;left:-30px;top:.55em;width:12px;height:12px;background:var(--bx-bg);border:var(--bx-border) var(--bx-accent)}
+.tl li.now::before{background:var(--bx-accent);animation:blink 1.1s steps(2) infinite}
+.tl .when{display:inline-block;margin-right:8px;color:var(--bx-value);font:22px/1.2 var(--bx-font-ui);letter-spacing:.05em;text-transform:var(--bx-case)}
+.tl b{font:600 17px var(--bx-font-text)}.tl p{margin:2px 0 0;color:var(--bx-dim);font-size:15px}
+@keyframes blink{50%{opacity:.2}}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.filters button{cursor:pointer;color:var(--bx-fg)}.filters button[aria-pressed="true"]{background:var(--bx-select);color:var(--bx-select-ink)}
+.grid article[hidden]{display:none}
+.kv{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.fun{margin:0;padding:0;list-style:none}.fun li{padding:3px 0}.fun li::before{content:"* ";color:var(--bx-accent)}
+a.chip{text-decoration:none;color:var(--bx-fg)}a.chip:hover{background:var(--bx-select);color:var(--bx-select-ink)}
+.clock{font-family:var(--bx-font-data);font-size:.75em;letter-spacing:0}
+/* boot / POST screen */
+#boot{position:fixed;inset:0;z-index:50;display:none;padding:28px;background:#000;color:#AAAAAA;font:22px/1.35 VT323,"Courier New",monospace;cursor:pointer;overflow:auto}
+#boot.on{display:block}#boot b{color:#fff;font-weight:400}#boot .ok{color:#55FF55}#boot .hint{color:#FFFF55}
+#boot pre{margin:0;white-space:pre-wrap;font:inherit}
+/* console */
+#term{position:fixed;left:0;right:0;bottom:0;z-index:40;display:none;max-height:55vh;border-top:var(--bx-border-strong) var(--bx-frame);background:var(--bx-bg);color:var(--bx-fg)}
+#term.on{display:flex;flex-direction:column}
+#term .out{margin:0;padding:10px 16px;overflow:auto;white-space:pre-wrap;font:15px/1.5 var(--bx-font-data);flex:1}
+#term form{display:flex;gap:8px;padding:8px 16px;border-top:1px dashed var(--bx-hair);font:15px var(--bx-font-data)}
+#term input{flex:1;min-width:0;border:0;background:transparent;color:inherit;font:inherit;outline:0;caret-color:var(--bx-accent)}
+#term .p{color:var(--bx-accent)}
+#toast{position:fixed;right:18px;bottom:62px;z-index:60;max-width:340px;padding:10px 14px;border:var(--bx-border) var(--bx-frame);background:var(--bx-warn-bg);color:var(--bx-warn-ink);font:15px/1.4 var(--bx-font-text);display:none}
+#toast.on{display:block}
+#crash{position:fixed;inset:0;z-index:70;display:none;padding:8vh 8vw;background:#0000AA;color:#fff;font:26px/1.35 VT323,monospace;cursor:pointer}
+#crash.on{display:block}
+.keys button{all:unset;cursor:pointer;padding:0 6px}.keys button:hover,.keys button:focus-visible{background:var(--bx-bar-ink);color:var(--bx-bar)}
+.keys .hk{opacity:.85}
+@media (max-width:760px){.kv{grid-template-columns:1fr}.menu{font-size:19px}.keys .hk{display:none}}
+@media print{#boot,#term,#toast,#crash{display:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-pt="Saltar para o conteúdo">Skip to content</a>
+<div id="boot" role="dialog" aria-label="Start-up screen" aria-live="polite"><pre id="bootout"></pre></div>
+<div id="crash" role="dialog" aria-label="Easter egg"><pre id="crashout"></pre></div>
+<div id="toast" role="status"></div>
+
+<div class="screen">
+  <div class="bar">
+    <span data-pt="Maizer Gomes · Configuração pessoal">Maizer Gomes · Personal setup utility</span>
+    <span class="clock" id="clock" title="Local time in Maputo">Maputo, MZ</span>
+  </div>
+  <div class="opts">
+    <div class="grp"><span class="lbl" data-pt="Língua">Language</span>
+      <span class="seg" role="group" aria-label="Language">
+        <button type="button" data-l="pt" aria-pressed="false">PT</button>
+        <button type="button" data-l="en" aria-pressed="false">EN</button>
+      </span></div>
+    <div class="grp"><span class="lbl" data-pt="Aspecto">Skin</span>
+      <span class="seg" role="group" aria-label="Skin">
+        <button type="button" data-t="white" aria-pressed="true" data-pt="Claro">White</button>
+        <button type="button" data-t="wire" aria-pressed="false" data-pt="Esboço">Wire</button>
+        <button type="button" data-t="bios" aria-pressed="false">BIOS</button>
+      </span></div>
+  </div>
+  <nav class="tabs" aria-label="Sections">
+    <a class="tab" href="#profile" data-pt="Perfil">Profile</a>
+    <a class="tab" href="#journey" data-pt="Percurso">Journey</a>
+    <a class="tab" href="#skills" data-pt="Competências">Expertise</a>
+    <a class="tab" href="#projects" data-pt="Projectos">Projects</a>
+    <a class="tab" href="#more" data-pt="Mais">More</a>
+    <a class="tab" href="#contact" data-pt="Contacto">Contact</a>
+  </nav>
+
+  <main id="main">
+    <header class="hero" id="profile">
+      <div>
+        <h1>Maizer Gomes</h1>
+        <p class="role" data-pt="Director de Tecnologia (CTO)">Chief Technology Officer</p>
+        <p class="where" data-pt="Maizer Aly de Oliveira Gomes · Maputo, Moçambique">Maizer Aly de Oliveira Gomes · Maputo, Mozambique</p>
+        <ul class="chips">
+          <li class="chip" data-pt="CTO · Thembani Digital">CTO · Thembani Digital</li>
+          <li class="chip" data-pt="Fundador · eKutiva Solutions">Founder · eKutiva Solutions</li>
+          <li class="chip" data-pt="Director-Geral · Thembani Technology">General Director · Thembani Technology</li>
+        </ul>
+      </div>
+      <div class="stats" aria-label="At a glance">
+        <div class="stat"><b data-count="16" id="yrs">16</b><span data-pt="anos em TI">years in IT</span></div>
+        <div class="stat"><b data-count="3">3</b><span data-pt="cargos de liderança">leadership roles</span></div>
+        <div class="stat"><b data-count="19">19</b><span data-pt="projectos abaixo">projects below</span></div>
+      </div>
+    </header>
+
+    <section class="card" aria-labelledby="h-about">
+      <h2 id="h-about" data-pt="Sobre">About</h2>
+      <p data-pt="Sou o Director de Tecnologia (CTO) da Thembani Digital Financial Services, um microbanco digital em Moçambique. Respondo pela agenda tecnológica: a estratégia, as equipas e parceiros que a executam, e a segurança, resiliência e conformidade regulatória que um banco exige, para que mais pessoas possam poupar, pedir crédito e pagar.">I am the Chief Technology Officer of Thembani Digital Financial Services, a digital-first microbank in Mozambique. I own the technology agenda: strategy, the teams and partners who deliver it, and the security, resilience and regulatory compliance a bank must have, so that more people can save, borrow and pay.</p>
+      <p data-pt="Sou também Director-Geral da Thembani Technology Solutions e fundador da eKutiva Solutions (2016). Antes da banca, dirigi o departamento de software académico da Universidade Pedagógica de Maputo, operando sistemas nacionais usados em todos os campi. Venho da engenharia, o que mantém as minhas decisões com os pés assentes na terra, e dedico-me a transformar tecnologia em serviços que as pessoas em Moçambique realmente possam usar.">I am also General Director of Thembani Technology Solutions and founder of eKutiva Solutions (2016). Before banking I headed the academic software department at Universidade Pedagógica de Maputo, running national systems used by every campus. I came up through engineering, which keeps my decisions grounded, and I focus on turning technology into services that people in Mozambique can actually use.</p>
+    </section>
+
+    <section class="card" aria-labelledby="h-sys">
+      <h2 id="h-sys" data-pt="Informação do sistema">System information</h2>
+      <ul class="menu">
+        <li><span data-pt="Sedeado em">Based in</span><span class="lead"></span><span class="v">Maputo</span></li>
+        <li><span data-pt="Línguas">Languages</span><span class="lead"></span><span class="v" data-pt="Português · Inglês">Português · English</span></li>
+        <li><span data-pt="Foco actual">Current focus</span><span class="lead"></span><span class="v" data-pt="Banca digital">Digital banking</span></li>
+        <li><span data-pt="Fundou">Founded</span><span class="lead"></span><span class="v">eKutiva, 2016</span></li>
+        <li><span data-pt="Leccionou">Taught</span><span class="lead"></span><span class="v" data-pt="Bases de dados · Aplicações web">Databases · Web apps</span></li>
+        <li><span data-pt="Arranques">Boot count</span><span class="lead"></span><span class="v" id="boots">1</span></li>
+      </ul>
+    </section>
+
+    <section class="card" id="journey" aria-labelledby="h-journey">
+      <h2 id="h-journey" data-pt="Percurso">Journey</h2>
+      <ol class="tl">
+        <li class="now"><span class="when" data-pt="2026 – hoje">2026 – now</span><b data-pt="Director de Tecnologia · Thembani Digital Financial Services">Chief Technology Officer · Thembani Digital Financial Services</b><p data-pt="Estratégia de TI, banca digital, infra-estrutura e cibersegurança, governação tecnológica e conformidade regulatória num microbanco digital.">IT strategy, digital banking, infrastructure and cybersecurity, technology governance and regulatory compliance for a digital-first microbank.</p></li>
+        <li class="now"><span class="when" data-pt="2024 – hoje">2024 – now</span><b data-pt="Director-Geral · Thembani Technology Solutions">General Director · Thembani Technology Solutions</b><p data-pt="Soluções tecnológicas seguras, escaláveis e sustentáveis para clientes.">Secure, scalable and sustainable technology solutions for clients.</p></li>
+        <li><span class="when">2023 – 2026</span><b data-pt="Director de TI · Thembani Africa Group">IT Director · Thembani Africa Group</b><p data-pt="Consultoria financeira: estratégia de TI, software à medida e gestão de infra-estrutura.">Financial consulting: IT strategy, custom software and infrastructure management.</p></li>
+        <li class="now"><span class="when" data-pt="2016 – hoje">2016 – now</span><b data-pt="Fundador · eKutiva Solutions">Founder · eKutiva Solutions</b><p data-pt="Uma empresa de software que constrói sistemas de administração, portais web, sistemas financeiros digitais e alojamento. Os produtos incluem o eKuSchool e o Quick-e-pay, além de sistemas para várias instituições em Moçambique.">A software company building administration systems, web portals, digital financial systems and hosting. Products include eKuSchool and Quick-e-pay, plus systems for several institutions in Mozambique.</p></li>
+        <li><span class="when">2010 – 2024</span><b data-pt="Universidade Pedagógica · Maputo">Universidade Pedagógica · Maputo</b><p data-pt="De técnico de TIC (2010) a docente e chefe do departamento de software académico. Liderou a equipa por trás dos sistemas nacionais de registo académico (SIGEUP, SICUP).">From ICT technician (2010) to lecturer and head of the academic software department. Led the team behind the national academic registry systems (SIGEUP, SICUP).</p></li>
+      </ol>
+    </section>
+
+    <section class="card" id="skills" aria-labelledby="h-skills">
+      <h2 id="h-skills" data-pt="Competências">Expertise</h2>
+      <table>
+        <thead><tr><th data-pt="Área">Area</th><th data-pt="O que trago">What I bring</th></tr></thead>
+        <tbody>
+          <tr><td data-pt="Liderança tecnológica">Technology leadership</td><td data-pt="Estratégia e roteiro tecnológico, liderança de equipas de engenharia, gestão de fornecedores e parceiros, entrega em ambientes regulados.">Technical strategy and roadmap, leading engineering teams, vendor and partner management, delivery in regulated environments.</td></tr>
+          <tr><td data-pt="Banca digital">Digital banking</td><td data-pt="Banca de base, abertura digital de contas, crédito e poupança, banca por agentes, canais móvel e USSD.">Core banking, digital onboarding, lending and savings, agent banking, mobile and USSD channels.</td></tr>
+          <tr><td data-pt="Pagamentos e parceiros">Payments & partners</td><td data-pt="RTGS e ACH, ISO 20022, dinheiro móvel, integrações com bancos e operadoras.">RTGS and ACH, ISO 20022, mobile money, bank and operator integrations.</td></tr>
+          <tr><td data-pt="Risco, segurança e conformidade">Risk, security & compliance</td><td data-pt="Cibersegurança, controlos de fraude e branqueamento, governação de acessos, relação com o regulador (sandbox do Banco de Moçambique).">Cybersecurity, fraud and AML controls, access governance, regulator engagement (Banco de Moçambique sandbox).</td></tr>
+          <tr><td data-pt="Resiliência e operações">Resilience & operations</td><td data-pt="Centro de dados e recuperação de desastres, continuidade de serviço, infra-estrutura e disponibilidade.">Data centre and disaster recovery, service continuity, infrastructure and uptime.</td></tr>
+          <tr><td data-pt="Produto e entrega">Product & delivery</td><td data-pt="Transformar necessidades de negócio em especificações, coordenar testes de aceitação, lançar produtos.">Turning business needs into specifications, coordinating acceptance testing, launching products.</td></tr>
+          <tr><td data-pt="Base de engenharia">Engineering foundation</td><td data-pt="Experiência prática em software e bases de dados (PHP, Laravel, TypeScript, Go, Python, PostgreSQL) que mantém a estratégia realista.">Hands-on background in software and databases (PHP, Laravel, TypeScript, Go, Python, PostgreSQL) that keeps strategy realistic.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="projects" aria-labelledby="h-projects">
+      <div class="card" style="padding-bottom:22px">
+        <h2 id="h-projects" data-pt="Projectos escolhidos">Selected projects</h2>
+        <div class="filters" role="group" aria-label="Filter projects">
+          <button class="chip" type="button" data-f="all" aria-pressed="true" data-pt="Todos">All</button>
+          <button class="chip" type="button" data-f="banking" aria-pressed="false" data-pt="Banca">Banking</button>
+          <button class="chip" type="button" data-f="education" aria-pressed="false" data-pt="Educação">Education</button>
+          <button class="chip" type="button" data-f="events" aria-pressed="false" data-pt="Eventos">Events</button>
+          <button class="chip" type="button" data-f="business" aria-pressed="false" data-pt="Clientes">Client work</button>
+          <button class="chip" type="button" data-f="tools" aria-pressed="false" data-pt="Ferramentas">Tools &amp; open source</button>
+        </div>
+        <div class="grid" id="grid">
+          <article class="card" data-c="banking" aria-labelledby="p1">
+            <h3 id="p1" data-pt="Plataforma Bancária Thembani Digital">Thembani Digital Banking Platform</h3>
+            <p data-pt="Liderei a entrega tecnológica de um microbanco digital: banca de base, banca web e móvel e ferramentas para agentes. Os clientes abrem conta, poupam, pedem crédito e pagam sem ir a um balcão.">Led technology delivery for a digital-first microbank: core banking, web and mobile banking, and tools for agents. Customers open accounts, save, borrow and pay without visiting a branch.</p>
+            <ul class="tags"><li class="chip" data-pt="Banco digital">Digital bank</li><li class="chip" data-pt="Banca por agentes">Agent banking</li><li class="chip" data-pt="Entrega">Delivery</li></ul>
+          </article>
+          <article class="card" data-c="banking" aria-labelledby="p2">
+            <h3 id="p2" data-pt="Banca USSD e Dinheiro Móvel">USSD Banking & Mobile Money</h3>
+            <p data-pt="Liderei o canal bancário &lt;code&gt;*778#&lt;/code&gt; e as integrações de dinheiro móvel, para que clientes sem smartphone nem dados consultem saldos, recarreguem, transfiram, paguem contas e peçam crédito. Um só serviço funciona com três operadoras.">Led the <code>*778#</code> banking channel and the mobile money integrations, so customers without a smartphone or data can check balances, top up, transfer, pay bills and request loans. One service works across three operators.</p>
+            <ul class="tags"><li class="chip" data-pt="Inclusão">Inclusion</li><li class="chip" data-pt="Três operadoras">Three operators</li><li class="chip" data-pt="Dinheiro móvel">Mobile money</li></ul>
+          </article>
+          <article class="card" data-c="banking" aria-labelledby="p3">
+            <h3 id="p3" data-pt="Integração de Pagamentos Interbancários">Interbank Payments Integration</h3>
+            <p data-pt="Liderei a integração e coordenei os testes de aceitação de pagamentos RTGS e ACH com o Banco de Moçambique e as instituições participantes, incluindo as mensagens ISO 20022, rejeições e devoluções.">Led the integration and coordinated user acceptance testing for RTGS and ACH payments with Banco de Moçambique and participating institutions, including the ISO 20022 messages, rejections and returns.</p>
+            <ul class="tags"><li class="chip" data-pt="Regulador">Regulator</li><li class="chip" data-pt="RTGS · ACH">RTGS · ACH</li><li class="chip" data-pt="ISO 20022">ISO 20022</li></ul>
+          </article>
+          <article class="card" data-c="banking" aria-labelledby="p4">
+            <h3 id="p4" data-pt="Monitorização de Fraude e Branqueamento">Fraud & AML Monitoring</h3>
+            <p data-pt="Um serviço de monitorização que avalia a actividade de clientes e agentes segundo 56 regras e verifica nomes em listas de sanções e de pessoas politicamente expostas. Cada regra começa em modo sombra e está ligada à sua base legal, para que a conformidade perceba porque se tomou uma decisão.">A monitoring service that scores customer and agent activity against 56 rules and screens names against sanctions and politically-exposed-person lists. Every rule starts in shadow mode and is tied to its legal basis, so compliance can trace why a decision was made.</p>
+            <ul class="tags"><li class="chip" data-pt="Conformidade">Compliance</li><li class="chip" data-pt="Risco">Risk</li><li class="chip" data-pt="AML">AML</li></ul>
+          </article>
+          <article class="card" data-c="banking" aria-labelledby="p5">
+            <h3 id="p5" data-pt="Plataforma de Força de Campo">Field Force Platform</h3>
+            <p data-pt="Operações de campo para uma rede de agentes de dinheiro móvel. Os promotores seguem planos diários, visitam agentes, registam presença por localização e abrem contas de clientes, mesmo sem rede. Os supervisores revêem cada registo e os administradores acompanham as metas num só painel.">Field operations for a mobile-money agent network. Promoters follow daily plans, visit agents, check in by location and onboard customers, even offline. Supervisors review every record and admins follow targets on one dashboard.</p><p data-pt="Um resultado só conta depois de o operador o confirmar, por isso os relatórios e os incentivos assentam em números reconciliados.">A result counts only after the operator confirms it, so reports and incentives rest on reconciled numbers.</p>
+            <ul class="tags"><li class="chip" data-pt="Operações">Operations</li><li class="chip" data-pt="Funciona sem rede">Offline-first</li><li class="chip" data-pt="Reconciliação">Reconciliation</li></ul>
+          </article>
+          <article class="card" data-c="banking" aria-labelledby="p6">
+            <h3 id="p6" data-pt="Plataforma de Microcrédito">Microcredit Lending Platform</h3>
+            <p data-pt="Uma plataforma para instituições de microfinanças e credores comunitários que automatiza todo o ciclo do crédito: registo, desembolso, reembolsos por canais de pagamento e relatórios de conformidade em tempo real. A avaliação de risco e a detecção de fraude usam aprendizagem automática alojada internamente.">A platform for microfinance institutions and community lenders that automates the whole loan cycle: registration, disbursement, repayments through payment channels, and real-time compliance reports. Scoring and fraud checks run on machine learning hosted in-house.</p>
+            <ul class="tags"><li class="chip" data-pt="Crédito">Lending</li><li class="chip" data-pt="Microfinanças">Microfinance</li><li class="chip" data-pt="Scoring com IA">AI scoring</li></ul>
+          </article>
+          <article class="card" data-c="banking" aria-labelledby="p7">
+            <h3 id="p7" data-pt="Serviço de KYC por Rosto e Documento">KYC Face & Document Service</h3>
+            <p data-pt="Verificação remota de clientes: comparação facial, extracção de dados de documentos de identificação moçambicanos e verificações cruzadas, para abrir contas digitalmente com um registo seguro.">Remote customer verification: face matching, data extraction from Mozambican identity documents and cross-checks, so accounts can be opened digitally with a secure trail.</p>
+            <ul class="tags"><li class="chip" data-pt="Abertura de conta">Onboarding</li><li class="chip" data-pt="Identidade">Identity</li></ul>
+          </article>
+          <article class="card" data-c="banking" aria-labelledby="p8">
+            <h3 id="p8" data-pt="Motor de Crédito T-Mali">T-Mali Credit Engine</h3>
+            <p data-pt="Um serviço de decisão de crédito que transforma o comportamento financeiro dos clientes numa pontuação e num escalão de crédito, de Micro a Platinum, com decaimento programado para que as decisões sigam o comportamento recente.">A credit decision service that turns customers’ financial behaviour into a score and a loan tier, from Micro to Platinum, with scheduled score decay so decisions follow recent behaviour.</p>
+            <ul class="tags"><li class="chip" data-pt="Risco de crédito">Credit risk</li><li class="chip" data-pt="Scoring">Scoring</li></ul>
+          </article>
+          <article class="card" data-c="banking" aria-labelledby="p9">
+            <h3 id="p9" data-pt="Monitor de Operações">Operations Monitor</h3>
+            <p data-pt="Uma aplicação Android para a equipa de operações acompanhar a plataforma em tempo real, tratar itens interbancários pendentes e rever fluxos de trabalho, com as mesmas permissões do back office.">An Android app for the operations team to watch the platform in real time, act on stuck interbank items and review workflows, with the same permissions as the back office.</p>
+            <ul class="tags"><li class="chip" data-pt="Operações">Operations</li><li class="chip" data-pt="Móvel">Mobile</li></ul>
+          </article>
+          <article class="card" data-c="banking" aria-labelledby="p10">
+            <h3 id="p10" data-pt="Infra-estrutura Bancária e Recuperação de Desastres">Banking Infrastructure & Disaster Recovery</h3>
+            <p data-pt="Superintendi a infra-estrutura que suporta os serviços do banco entre o sítio principal em Maputo e o de recuperação de desastres na Matola: virtualização, conectividade, cópias de segurança e recuperação, para que o banco continue a funcionar quando algo falha.">Oversaw the infrastructure behind the bank’s services across the primary site in Maputo and the disaster recovery site in Matola: virtualisation, connectivity, backup and recovery, so the bank keeps running when something fails.</p>
+            <ul class="tags"><li class="chip" data-pt="Resiliência">Resilience</li><li class="chip" data-pt="Dois sítios">Two sites</li><li class="chip" data-pt="Continuidade">Continuity</li></ul>
+          </article>
+          <article class="card" data-c="banking" aria-labelledby="p11">
+            <h3 id="p11" data-pt="Quick-e-pay">Quick-e-pay</h3>
+            <p data-pt="Uma plataforma de pagamentos online da eKutiva Solutions, em desenvolvimento.">An online payments gateway from eKutiva Solutions, currently in development.</p>
+            <ul class="tags"><li class="chip" data-pt="Pagamentos">Payments</li><li class="chip" data-pt="Em desenvolvimento">In development</li></ul>
+          </article>
+          <article class="card" data-c="education" aria-labelledby="p12">
+            <h3 id="p12" data-pt="eKuSchool">eKuSchool</h3>
+            <p data-pt="Uma plataforma de gestão académica para escolas e universidades: inscrições, notas, assiduidade e horários, salários, facturação em várias moedas e gestão de património. Docentes, estudantes e encarregados têm cada um o seu portal, em português e inglês.">An academic management platform for schools and universities: enrolment, grades, attendance and timetables, payroll, multi-currency invoicing and asset management. Teachers, students and guardians each have their own portal, in Portuguese and English.</p><p data-pt="A segurança vem incluída (chaves de acesso, códigos de autenticação, entrada social) e traz sistema de design próprio e manuais de utilizador para cada perfil.">Security is built in (passkeys, authenticator codes, social sign-in), and it ships with its own design system and user manuals for every role.</p>
+            <ul class="tags"><li class="chip" data-pt="Produto">Product</li><li class="chip" data-pt="Educação">Education</li><li class="chip" data-pt="Liderado pelo fundador">Founder-led</li></ul>
+          </article>
+          <article class="card" data-c="education" aria-labelledby="p13">
+            <h3 id="p13" data-pt="SIGEUP e SICUP">SIGEUP & SICUP</h3>
+            <p data-pt="Os sistemas de gestão e certificação da Universidade Pedagógica, usados pelo registo académico em todo o país: inscrições, pautas, pagamentos, certificados e graduações. Construídos e operados enquanto dirigia o departamento de software académico e depois implantados noutra universidade.">The management and certification systems of Universidade Pedagógica, used by the academic registry across the country: enrolment, grade sheets, payments, certificates and graduations. Built and run while heading the academic software department, later deployed for a second university.</p>
+            <ul class="tags"><li class="chip" data-pt="Escala nacional">National scale</li><li class="chip" data-pt="Registo académico">Academic registry</li></ul>
+          </article>
+          <article class="card" data-c="events" aria-labelledby="p14">
+            <h3 id="p14" data-pt="Controlo de Acessos e Resultados dos Jogos da Juventude">Youth Games Access Control & Results</h3>
+            <p data-pt="Construído para os jogos regionais da juventude em Maputo (3 a 13 de Dezembro de 2026). Leitores portáteis validam credenciais para refeições, gelo e lavandaria, mesmo sem rede. Uma plataforma de resultados com aprovação por duas pessoas e quadros de medalhas automáticos alimenta um site público bilingue.">Built for the regional youth games in Maputo (3 to 13 December 2026). Handheld scanners check badges for meals, ice and laundry, even offline. A results platform with two-person approval and automatic medal tables feeds a public bilingual website.</p>
+            <ul class="tags"><li class="chip" data-pt="Evento ao vivo">Live event</li><li class="chip" data-pt="Funciona sem rede">Offline-first</li><li class="chip" data-pt="Bilingue">Bilingual</li></ul>
+          </article>
+          <article class="card" data-c="business" aria-labelledby="p15">
+            <h3 id="p15" data-pt="MaeBiz">MaeBiz</h3>
+            <p data-pt="Uma “super app” para mães que equilibram família, trabalho e negócio. Uma só aplicação cobre a casa (família e trabalhadores domésticos, tarefas, listas de compras, inventário, orçamento familiar), ferramentas para pequenos negócios (documentos, fornecedores, clientes, projectos e orçamentos) e um centro de informação com notícias, livros digitais e podcasts.">A “super app” for mothers who balance family, work and business. One app covers the household (family members and domestic staff, tasks, shopping lists, inventory, family budget), small-business tools (documents, suppliers, clients, projects and budgets) and an information hub with news, e-books and podcasts.</p><p data-pt="Cuida também da saúde, com registo do ciclo e da gravidez, assistente de saúde com IA, consultas e conversa com médicos, e oferece um mercado, receitas e planos de refeições. Entregue de ponta a ponta a um cliente: apps iOS e Android, servidor, painel de administração, serviços de IA e uma página bilingue.">It also looks after health, with cycle and pregnancy tracking, an AI health assistant, doctor consultations and chat, and offers a marketplace, recipes and meal plans. Delivered end to end for a client: iOS and Android apps, back end, admin dashboard, AI services and a bilingual landing page.</p>
+            <ul class="tags"><li class="chip" data-pt="Super app">Super app</li><li class="chip" data-pt="Saúde da mulher">Women’s health</li><li class="chip" data-pt="Pequenos negócios">Small business</li><li class="chip" data-pt="IA">AI</li></ul>
+          </article>
+          <article class="card" data-c="business" aria-labelledby="p16">
+            <h3 id="p16" data-pt="Sistema de rastreio de encomendas">Parcel tracking system</h3>
+            <p data-pt="Um sistema web para uma empresa de logística: encomendas com números de rastreio e códigos QR, histórico de estados, registos de actividade, acesso por perfil e uma página pública de rastreio para os clientes.">A web system for a logistics company: shipments with tracking numbers and QR codes, status history, activity logs, role-based access and a public tracking page for customers.</p>
+            <ul class="tags"><li class="chip" data-pt="Logística">Logistics</li><li class="chip" data-pt="Trabalho para cliente">Client work</li></ul>
+          </article>
+          <article class="card" data-c="tools" aria-labelledby="p17">
+            <h3 id="p17" data-pt="madzi-cli">madzi-cli</h3>
+            <p data-pt="Uma aplicação de terminal de código aberto para gerir facturas de água pós-pagas em Moçambique: encontrar facturas por pagar, descarregar recibos, pagar com M-Pesa e enviar recibos por email. Instala-se com Homebrew.">An open-source terminal app to manage postpaid water invoices in Mozambique: find unpaid invoices, download receipts, pay with M-Pesa and email receipts. Installable with Homebrew.</p>
+            <ul class="tags"><li class="chip" data-pt="Código aberto">Open source</li><li class="chip" data-pt="M-Pesa">M-Pesa</li></ul>
+          </article>
+          <article class="card" data-c="tools" aria-labelledby="p18">
+            <h3 id="p18" data-pt="Magic Adventure">Magic Adventure</h3>
+            <p data-pt="Um jogo de aventura de terminal com mundo aberto, combate por turnos, missões online em grupo e um assistente de IA no jogo. Sim, é por diversão.">A terminal role-playing game with an open world, turn-based combat, online party quests and an in-game AI helper. Yes, it is for fun.</p>
+            <ul class="tags"><li class="chip" data-pt="Projecto pessoal">Side project</li><li class="chip" data-pt="Multijogador">Multiplayer</li></ul>
+          </article>
+          <article class="card" data-c="tools" aria-labelledby="p19">
+            <h3 id="p19" data-pt="Scripts de operações e IA">Ops & AI scripts</h3>
+            <p data-pt="Uma caixa de ferramentas pessoal para operar infra-estrutura e trabalhar com ferramentas de IA: comutação de DNS na Cloudflare em caso de falha, monitor de disponibilidade, controlo do uso e custo de IA e manutenção de máquinas virtuais.">A personal toolbox of utilities for running infrastructure and working with AI tools: a Cloudflare DNS failover switch, an uptime monitor, AI usage and cost tracking and virtual-machine housekeeping.</p>
+            <ul class="tags"><li class="chip" data-pt="Automação">Automation</li><li class="chip" data-pt="Contingência">Failover</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="more" aria-labelledby="h-more">
+      <h2 id="h-more" data-pt="Mais">More</h2>
+      <div class="kv">
+        <div>
+          <p class="dim" style="margin:0 0 6px" data-pt="Formação e certificados">Education &amp; certificates</p>
+          <ul class="fun" style="--x:1">
+            <li data-pt="Licenciatura em Ensino de Informática, Universidade Pedagógica">Licenciatura in Computer Science Education, Universidade Pedagógica</li>
+            <li data-pt="Cibersegurança e Cloud &amp;amp; Business, Unicaf University (2024)">Cyber Security and Cloud &amp; Business, Unicaf University (2024)</li>
+            <li data-pt="Dinheiro Digital, Digital Frontiers Institute (percurso CDFP)">Digital Money, Digital Frontiers Institute (CDFP track)</li>
+            <li data-pt="Inglês Geral, Nível 5 (avançado)">General English, Level 5 (advanced)</li>
+            <li data-pt="Participou no 1.º Sandbox do Banco de Moçambique">Took part in the 1st Sandbox of Banco de Moçambique</li>
+          </ul>
+        </div>
+        <div>
+          <p class="dim" style="margin:0 0 6px" data-pt="Fora do teclado">Off the keyboard</p>
+          <ul class="fun">
+            <li data-pt="Antigo actor de voz: dobrou para português uma novela sul-africana (2006) e interpretou uma personagem numa radionovela (2007).">Former voice actor: dubbed a South African TV drama into Portuguese (2006) and played a character in a radio drama (2007).</li>
+            <li data-pt="Escreve jogos de terminal em Go, porque não?">Writes terminal games in Go, because why not.</li>
+            <li data-pt="Dica: prima &lt;kbd&gt;`&lt;/kbd&gt; para abrir a consola e escreva &lt;code&gt;help&lt;/code&gt;.">Tip: press <kbd>`</kbd> to open the console and type <code>help</code>.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="contact" aria-labelledby="h-contact">
+      <h2 id="h-contact" data-pt="Contacto">Contact</h2>
+      <ul class="contact">
+        <li><b data-pt="Website">Website</b><a href="https://maizergomes.ekutiva.co.mz">maizergomes.ekutiva.co.mz</a></li>
+        <li><b>LinkedIn</b><a href="https://www.linkedin.com/in/maizergomes">linkedin.com/in/maizergomes</a></li>
+        <li><b>GitHub</b><a href="https://github.com/MaizerGomes">github.com/MaizerGomes</a></li>
+        <li><b>Blog</b><a href="https://blog.ekutivasolutions.co.mz">blog.ekutivasolutions.co.mz</a></li>
+        <!-- Add a public email, then delete the `hidden` attribute on the next line. -->
+        <li hidden><b>Email</b><a href="mailto:EMAIL@EXAMPLE.COM">EMAIL@EXAMPLE.COM</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <div class="keys">
+    <span>© Maizer Gomes · Maputo</span>
+    <span class="hk"><button type="button" id="open-term" title="Open the console (`)">` Console</button><button type="button" id="open-help" title="Keyboard help (?)">? Help</button><button type="button" id="cycle" title="Next skin (F2)">F2 Skin</button></span>
+  </div>
+</div>
+
+<div id="term" role="dialog" aria-label="Console">
+  <pre class="out" id="tout"></pre>
+  <form id="tform" autocomplete="off"><span class="p">maizer@portfolio:~$</span><input id="tin" aria-label="Command" spellcheck="false"></form>
+</div>
+
+<script>
+(function () {
+  var $ = function (s, r) { return (r || document).querySelector(s); }, $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var root = document.documentElement, SKINS = ['white', 'wire', 'bios'];
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- language: elements carry their Portuguese in data-pt; the English is the HTML itself ---- */
+  var LANG = root.lang === 'en' ? 'en' : 'pt';
+  $$('[data-pt]').forEach(function (e) { e.dataset.en = e.innerHTML; });
+  function L(en, pt) { return LANG === 'pt' ? pt : en; }
+  function setLang(l) {
+    LANG = l === 'en' ? 'en' : 'pt'; root.lang = LANG;
+    try { localStorage.setItem('bx-lang', LANG); } catch (e) {}
+    $$('[data-pt]').forEach(function (e) { e.innerHTML = LANG === 'pt' ? e.getAttribute('data-pt') : e.dataset.en; });
+    $$('.seg button[data-l]').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.l === LANG ? 'true' : 'false'); });
+    document.title = L('Maizer Gomes · Chief Technology Officer · Maputo', 'Maizer Gomes · Director de Tecnologia (CTO) · Maputo');
+    var m = $('meta[name=description]'); if (m) m.content = L('Maizer Gomes: Chief Technology Officer at Thembani Digital Financial Services, General Director of Thembani Technology Solutions, founder of eKutiva Solutions. Maputo, Mozambique.', 'Maizer Gomes: Director de Tecnologia (CTO) da Thembani Digital Financial Services, Director-Geral da Thembani Technology Solutions e fundador da eKutiva Solutions. Maputo, Moçambique.');
+    tick();
+  }
+  $$('.seg button[data-l]').forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.l); }); });
+
+  /* ---- skins ---- */
+  function current() { var t = root.getAttribute('data-theme'); return t || (matchMedia('(prefers-color-scheme: dark)').matches ? 'bios' : 'white'); }
+  function setSkin(t) {
+    if (SKINS.indexOf(t) < 0) return false;
+    root.setAttribute('data-theme', t);
+    try { localStorage.setItem('bx-skin-theme', t); } catch (e) {}
+    $$('.seg button[data-t]').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.t === t ? 'true' : 'false'); });
+    return true;
+  }
+  $$('.seg button[data-t]').forEach(function (b) { b.addEventListener('click', function () { setSkin(b.dataset.t); }); });
+  function cycle() { var n = SKINS[(SKINS.indexOf(current()) + 1) % SKINS.length]; setSkin(n); toast(L('Skin: ', 'Aspecto: ') + n.toUpperCase()); }
+  $('#cycle').addEventListener('click', cycle);
+  setSkin(current());
+
+  /* ---- toast ---- */
+  var tt; function toast(m) { var t = $('#toast'); t.textContent = m; t.classList.add('on'); clearTimeout(tt); tt = setTimeout(function () { t.classList.remove('on'); }, 2600); }
+
+  /* ---- years in IT, boot counter, clock ---- */
+  var yrs = new Date().getFullYear() - 2010; var y = $('#yrs'); y.textContent = yrs; y.dataset.count = yrs;
+  var boots = 1; try { boots = (+localStorage.getItem('bx-boots') || 0) + 1; localStorage.setItem('bx-boots', boots); } catch (e) {}
+  $('#boots').textContent = boots;
+  function tick() { try { $('#clock').textContent = 'Maputo ' + new Date().toLocaleTimeString(LANG === 'pt' ? 'pt-PT' : 'en-GB', { timeZone: 'Africa/Maputo', hour: '2-digit', minute: '2-digit', second: '2-digit' }) + ' CAT'; } catch (e) {} }
+  tick(); setInterval(tick, 1000);
+  setLang(LANG);
+
+  /* ---- count-up for the stats ---- */
+  if (!reduce && 'IntersectionObserver' in window) {
+    var co = new IntersectionObserver(function (es) { es.forEach(function (e) {
+      if (!e.isIntersecting) return; co.unobserve(e.target);
+      var el = e.target, to = +el.dataset.count, n = 0, step = Math.max(1, Math.ceil(to / 24));
+      var iv = setInterval(function () { n = Math.min(to, n + step); el.textContent = n; if (n >= to) clearInterval(iv); }, 35);
+    }); });
+    $$('[data-count]').forEach(function (el) { el.textContent = '0'; co.observe(el); });
+  }
+
+  /* ---- tab marker follows the section in view; keys 1-6 jump ---- */
+  var tabs = $$('.tab');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) tabs.forEach(function (t) { t.setAttribute('aria-current', t.getAttribute('href') === '#' + e.target.id ? 'true' : 'false'); }); }); }, { rootMargin: '-30% 0px -60% 0px' });
+    tabs.forEach(function (t) { var s = $(t.getAttribute('href')); if (s) io.observe(s); });
+  }
+
+  /* ---- project filter ---- */
+  $$('.filters button').forEach(function (b) { b.addEventListener('click', function () {
+    $$('.filters button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+    $$('#grid article').forEach(function (a) { a.hidden = b.dataset.f !== 'all' && a.dataset.c !== b.dataset.f; });
+  }); });
+
+  /* ---- boot (POST) screen: once per session, skippable, never with reduced motion ---- */
+  var boot = $('#boot'), bo = $('#bootout');
+  function bootDone() { boot.classList.remove('on'); document.removeEventListener('keydown', bootKey); }
+  function bootKey() { bootDone(); }
+  function LANG0(en, pt) { return L(en, pt); }
+  var seen = false; try { seen = sessionStorage.getItem('bx-booted'); sessionStorage.setItem('bx-booted', '1'); } catch (e) {}
+  if (!seen && !reduce) {
+    boot.classList.add('on'); boot.addEventListener('click', bootDone); document.addEventListener('keydown', bootKey);
+    var BL = [LANG0('<b>MG-BIOS</b> (C) Maizer Gomes · Maputo · Portfolio edition','<b>MG-BIOS</b> (C) Maizer Gomes · Maputo · Edição portefólio'), '', LANG0('CPU : Curiosity, 16 yrs of experience detected','CPU : Curiosidade, 16 anos de experiência detectados'), 'RAM : Memory test ', '', LANG0('Detecting divisions ... Banking  Payments  Education  [<span class="ok">OK</span>]','A detectar áreas ... Banca  Pagamentos  Educação  [<span class="ok">OK</span>]'), LANG0('Detecting rails  ... RTGS  ACH  USSD          [<span class="ok">OK</span>]','A detectar canais ... RTGS  ACH  USSD         [<span class="ok">OK</span>]'), LANG0('Loading profile  ... Maizer Gomes             [<span class="ok">OK</span>]','A carregar perfil ... Maizer Gomes            [<span class="ok">OK</span>]'), '', '<span class="hint">'+LANG0('Press any key to enter setup ... (or wait)','Prima uma tecla para entrar ... (ou espere)')+'</span>'];
+    var i = 0, mem = 0; bo.innerHTML = '';
+    (function line() {
+      if (!boot.classList.contains('on')) return;
+      if (i >= BL.length) { setTimeout(bootDone, 1100); return; }
+      if (BL[i].indexOf('Memory test') > -1) {
+        var iv = setInterval(function () { mem += 4096; if (!boot.classList.contains('on')) { clearInterval(iv); return; } bo.innerHTML = BL.slice(0, i).join('\n') + '\n' + BL[i] + mem + 'K' + (mem >= 65536 ? ' <span class="ok">OK</span>' : ''); if (mem >= 65536) { clearInterval(iv); i++; setTimeout(line, 120); } }, 25);
+        return;
+      }
+      bo.innerHTML = BL.slice(0, ++i).join('\n'); setTimeout(line, BL[i - 1] === '' ? 40 : 170);
+    })();
+  }
+
+  /* ---- console ---- */
+  var term = $('#term'), out = $('#tout'), inp = $('#tin'), hist = [], hp = 0;
+  function print(t) { out.textContent += t + '\n'; out.scrollTop = out.scrollHeight; }
+  var CMD = {
+    help: function () { return 'Commands: help, whoami, roles, skills, projects, contact, skin <white|wire|bios>, lang <pt|en>, voice, fortune, date, clear, exit'; },
+    whoami: function () { return L('Maizer Aly de Oliveira Gomes, Chief Technology Officer in Maputo. Leads technology for a digital microbank; founder of eKutiva Solutions.','Maizer Aly de Oliveira Gomes, Director de Tecnologia (CTO) em Maputo. Lidera a tecnologia de um microbanco digital; fundador da eKutiva Solutions.'); },
+    roles: function () { return L('CTO · Thembani Digital Financial Services\nGeneral Director · Thembani Technology Solutions\nFounder · eKutiva Solutions','CTO · Thembani Digital Financial Services\nDirector-Geral · Thembani Technology Solutions\nFundador · eKutiva Solutions'); },
+    skills: function () { return $$('tbody tr').map(function (r) { return r.children[0].textContent + ': ' + r.children[1].textContent; }).join('\n'); },
+    projects: function () { return $$('#grid h3').map(function (h) { return '- ' + h.textContent; }).join('\n'); },
+    contact: function () { return $$('.contact li:not([hidden])').map(function (l) { return l.textContent.replace(/\s+/g, ' ').trim(); }).join('\n'); },
+    lang: function (a) { if (a !== 'pt' && a !== 'en') return 'Usage: lang <pt|en>'; setLang(a); return 'Language: ' + a; },
+    skin: function (a) { return setSkin(a) ? 'Skin set to ' + a : 'Usage: skin <white|wire|bios>, lang <pt|en>'; },
+    voice: function () { return L('Fun fact: in 2006 I dubbed a South African TV drama into Portuguese. Yes, with the voice.','Curiosidade: em 2006 dobrei para português uma novela sul-africana. Sim, com a minha voz.'); },
+    fortune: function () { var f = ['It works on my machine. Ship the machine.', 'There are 10 kinds of people: those who read binary and those who do not.', 'A bank is just a very serious database with a dress code.', 'First make it work, then make it fast, then make it a microservice. Or do not.']; return f[Math.floor(Math.random() * f.length)]; },
+    date: function () { return new Date().toLocaleString('en-GB', { timeZone: 'Africa/Maputo' }) + ' CAT'; },
+    clear: function () { out.textContent = ''; return null; },
+    exit: function () { closeTerm(); return null; },
+    sudo: function () { return 'maizer is not in the sudoers file. This incident will be reported. (to nobody)'; },
+    ls: function () { return 'profile  journey  skills  projects  more  contact'; },
+    cd: function (a) { var t = $('#' + (a || '').replace('/', '')); if (t) { t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); return 'cd ' + a; } return 'No such section'; },
+    hire: function () { return 'Great taste. Try: contact'; }
+  };
+  function openTerm() { term.classList.add('on'); if (!out.textContent) print('Type help for commands. Press Esc to close.'); inp.focus(); }
+  function closeTerm() { term.classList.remove('on'); }
+  $('#open-term').addEventListener('click', openTerm);
+  $('#tform').addEventListener('submit', function (e) {
+    e.preventDefault(); var v = inp.value.trim(); inp.value = ''; if (!v) return;
+    hist.push(v); hp = hist.length; print('$ ' + v);
+    var p = v.split(/\s+/), f = CMD[p[0].toLowerCase()], r = f ? f(p[1]) : 'command not found: ' + p[0] + ' (try help)';
+    if (r) print(r);
+  });
+  inp.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowUp' && hist.length) { hp = Math.max(0, hp - 1); inp.value = hist[hp]; e.preventDefault(); }
+    if (e.key === 'ArrowDown') { hp = Math.min(hist.length, hp + 1); inp.value = hist[hp] || ''; e.preventDefault(); }
+  });
+
+  /* ---- help overlay (uses the toast area) and Konami easter egg ---- */
+  function help() { toast(L('Keys: ` console · F2 skin · 1-6 sections · ? help · Esc close. There is a secret: try the Konami code.','Teclas: ` consola · F2 aspecto · 1-6 secções · ? ajuda · Esc fechar. Há um segredo: experimente o código Konami.')); }
+  $('#open-help').addEventListener('click', help);
+  var kon = 'ArrowUp,ArrowUp,ArrowDown,ArrowDown,ArrowLeft,ArrowRight,ArrowLeft,ArrowRight,b,a', ks = [];
+  var crash = $('#crash');
+  function crashOn() {
+    $('#crashout').textContent = 'A problem has been detected and eKuSchool has been shut down to prevent damage to your coffee.\n\nTECHNICAL INFORMATION:\n*** STOP: 0x0000CAFE (0xDEADBEEF, 0xFEEDF00D)\n\nJust kidding. Nothing crashed. You found the secret.\nFun fact: this page was designed from a BIOS setup screen.\n\nPress any key to continue_';
+    crash.classList.add('on');
+  }
+  crash.addEventListener('click', function () { crash.classList.remove('on'); });
+
+  document.addEventListener('keydown', function (e) {
+    var tag = (e.target.tagName || '').toLowerCase(), typing = tag === 'input' || tag === 'textarea';
+    if (e.key === 'Escape') { closeTerm(); crash.classList.remove('on'); return; }
+    if (crash.classList.contains('on')) { crash.classList.remove('on'); return; }
+    ks.push(e.key.length === 1 ? e.key.toLowerCase() : e.key); ks = ks.slice(-10); if (ks.join(',') === kon) { crashOn(); return; }
+    if (typing) return;
+    if (e.key === '`') { e.preventDefault(); term.classList.contains('on') ? closeTerm() : openTerm(); }
+    else if (e.key === 'F2') { e.preventDefault(); cycle(); }
+    else if (e.key === '?') { help(); }
+    else if (/^[1-6]$/.test(e.key) && !e.metaKey && !e.ctrlKey && !e.altKey) { var t = tabs[+e.key - 1]; if (t) { location.hash = t.getAttribute('href'); } }
+  });
+})();
+</script>
+</body>
+</html>
